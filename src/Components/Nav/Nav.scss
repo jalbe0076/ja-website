@@ -1,12 +1,14 @@
-.header {
+header {
   position: relative;
   top: 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
 }
 
 .menu-btn {
   --button-color: #232;
-  padding: .5em;
-  // border: none;
+  padding: .9em .5em;
   border-radius: 8px;
   background: none;
   display: flex;
@@ -15,45 +17,69 @@
   position: absolute;
   top: 0.8rem;
   right: 0.8rem;
+  z-index: 1;
+
+
+  &.undefined :is(.top, .bottom) {
+    animation: none;
+  }
+
+  &.closed :is(.top, .bottom) {
+    animation: to-open-icon 1s forwards;
+  }
+
+  &.opened :is(.top, .bottom) {
+    animation: to-close-icon 1s forwards;
+  }
+
+  .hamburger {
+    transition: rotate 800ms 100ms;
+  }
+
+  &.opened .hamburger {
+    rotate: 1turn;
+  }
+
+  .line.top {
+    --rotation: -45deg;
+    transform-origin: 75px 29px;
+  }
+
+  &[aria-expanded='false'] .line.middle {
+    transition: 1s;
+    opacity: 0;
+  }
+
+  &[aria-expanded='true'] .line.middle {
+    transition: 1s;
+  }
+
+  .line.bottom {
+    --rotation: 45deg;
+    transform-origin: 75px 53px;
+  }
 }
 
-.menu-btn.undefined :is(.top, .bottom) {
-  animation: none;
+.sidebar {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background-color: antiquewhite;
+  transition: translate 1000ms;
+  translate: 100%;
+
+
+  .nav-link-container {    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 50vh;
+    margin: 0 4rem;
+  }
 }
 
-.menu-btn.closed :is(.top, .bottom) {
-  animation: to-open-icon 1s forwards;
-}
-
-.menu-btn.opened :is(.top, .bottom) {
-  animation: to-close-icon 1s forwards;
-}
-
-.menu-btn .hamburger {
-  transition: rotate 800ms 100ms;
-}
-
-.menu-btn.opened .hamburger {
-  rotate: 1turn;
-}
-
-.menu-btn .line.top {
-  --rotation: -45deg;
-  transform-origin: 75px 29px;
-}
-
-.menu-btn[aria-expanded='false'] .line.middle {
-  transition: 1s;
-  opacity: 0;
-}
-
-.menu-btn[aria-expanded='true'] .line.middle {
-  transition: 1s;
-}
-
-.menu-btn .line.bottom {
-  --rotation: 45deg;
-  transform-origin: 75px 53px;
+.sidebar[aria-expanded='false'] {
+  translate: 0;
 }
 
 @keyframes to-close-icon {
@@ -65,7 +91,7 @@
   }
   60% {
     stroke-dashoffset: 79.9;
-    rotate: calc(var(--rotation));
+    rotate: var(--rotation);
   }
   100% {
     stroke-dashoffset: 0;
