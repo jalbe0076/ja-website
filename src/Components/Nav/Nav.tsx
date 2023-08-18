@@ -9,7 +9,7 @@ const Nav = () => {
     !hasMounted && setHasMounted(true);
   }, [hasMounted]);
 
-  const ariaExpanded = asideState === 'closed' ? true : false;
+  const ariaExpanded = asideState === 'opened' ? true : false;
 
   const handleClick = () => {
     setAsideState(prevState => prevState === 'closed' || prevState === undefined ? 'opened' : 'closed')
@@ -17,7 +17,10 @@ const Nav = () => {
  
   return (
     <header>
-      <h1>Jason Alberto</h1>
+      <div className='name-container'>
+        <h1>JASON ALBERTO</h1>
+        <p>SOFTWARE DEVELOPER</p>
+      </div>
       <button className={`menu-btn ${asideState}`} aria-expanded={ariaExpanded} onClick={handleClick}>
         <svg stroke="var(--button-color)" className="hamburger" viewBox="0 0 100 80" width="35">
           <line className="line top" x1="90" x2="10" y1="20" y2="20" strokeWidth="10" strokeLinecap="round" strokeDasharray="80" strokeDashoffset="0" />
@@ -28,10 +31,10 @@ const Nav = () => {
       </button>
       <aside className='sidebar' aria-expanded={ariaExpanded}>
         <nav className='nav-link-container'>
-          <a className='menu-link about'>About</a>
-          <a className='menu-link projects'>Projects</a>
-          <a className='menu-link resume'>Resume</a>
-          <a className='menu-link contact'>Contact</a>
+          <a href='#' className='menu-link about'>About</a>
+          <a href='#' className='menu-link projects'>Projects</a>
+          <a href='#' className='menu-link resume'>Resume</a>
+          <a href='#' className='menu-link contact'>Contact</a>
         </nav>
       </aside>
     </header>
