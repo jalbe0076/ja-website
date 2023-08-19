@@ -3,7 +3,10 @@ header {
   top: 0;
   display: flex;
   justify-content: space-between;
-  background-color: transparent;
+  background-color: white;
+  padding: .5em 1em;
+  height: var(--header-height);
+  z-index: 1;
 }
 
 .menu-btn {
@@ -14,11 +17,11 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .2em;
   position: absolute;
-  top: 0.8rem;
-  right: 0.8rem;
+  top: .75em;
+  right: 1em;
   z-index: 1;
+  font-size: .8rem;
 
   &.undefined :is(.top, .bottom) {
     animation: none;
@@ -69,6 +72,7 @@ header {
   translate: 100%;
   position: absolute;
   right: 0;
+  top: 0;
 
   .nav-link-container {    
     display: flex;
@@ -120,6 +124,10 @@ header {
   }
 }
 
+.name-container {
+  text-align: center;
+}
+
 @keyframes to-close-icon {
   0% {
     stroke-dashoffset: 0;
@@ -151,5 +159,36 @@ header {
   }
   100% {
     stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .name-container {
+    h1 {
+      // font-size: 1.4rem;
+    }
+  }
+
+  .sidebar {
+    width: 100vw;
+    .nav-link-container {
+      .menu-link {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .sidebar[aria-expanded='true'] {
+    .menu-link {
+      translate: 0px;
+    }
+  }  
+}
+
+@media (max-width: 374px) {
+  .name-container {
+    h1 {
+      font-size: 1.4rem;
+    }
   }
 }
