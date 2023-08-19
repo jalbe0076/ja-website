@@ -1,0 +1,46 @@
+.project-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: 16px 16px 15px -5px rgba(0, 0, 0, 0.22);
+}
+
+.project-photo {
+  width: 100%;  
+  object-fit: cover;
+  background-color: black;
+}
+
+.info-box {
+  padding: 1.1rem;
+  display: grid;
+  grid-template-rows: max-content auto;
+  flex-grow: 1;
+
+  .project-name {
+    font-size: 1.3rem;
+  }
+}
+
+.link-container {
+  background-color: grey;
+  width: auto;
+  padding: 0.3em 4em 0.3em 0.6em;
+  margin: .6em 0;
+  display: flex;
+  text-decoration: none;     
+
+  .arrow {
+    margin-left: .5em;
+  }
+ 
+  &:visited {
+    // color: $nav-light-grey;
+  }
+}
+
+.navigation-container {
+  margin-top: .5em;
+  align-self: flex-end;
+}

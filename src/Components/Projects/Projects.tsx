@@ -1,18 +1,9 @@
-import { env } from 'process';
 import './Projects.scss';
-import ProjectCard from './ProjectCard';
+import ProjectCard from '../ProjectCard/ProjectCard';
 
 const Projects = () => {
-  const arrowSvg = (
-    <svg className='arrow' stroke="black" height="24" viewBox="0 0 100 80" width="40">
-          <line className="line top" x1="70" x2="40" y1="40" y2="20" strokeWidth="8" strokeLinecap="round"/>
-          <line className="line middle" x1="70" x2="0" y1="40" y2="40" strokeWidth="8" strokeLinecap="round" />
-          <line className="line bottom" x1="40" x2="70" y1="60" y2="40" strokeWidth="8" strokeLinecap="round"/>
-    </svg>
-  );
-  
   return (
-    <>
+    <div className='portfolio-box'>
       <h2 className="sub-title-greet">Projects</h2>
       <section className='portfolio-container'>
         <ProjectCard 
@@ -73,7 +64,7 @@ const Projects = () => {
           repo='https://github.com/jalbe0076/rock-paper-scissors-m1-final'
         />
       </section>
-    </>
+    </div>
   );
 }
 

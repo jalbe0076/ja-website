@@ -1,3 +1,5 @@
+import './ProjectCard.scss'
+
 interface ProjectCardProps {
   img: string,
   name: string,
