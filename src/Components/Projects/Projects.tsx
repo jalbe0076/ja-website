@@ -1,11 +1,27 @@
 import './Projects.scss';
 import ProjectCard from '../ProjectCard/ProjectCard';
+import { useEffect, useRef, useState } from 'react';
 
 const Projects = () => {
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
+  const [isVisible, setIsVisible] = useState<boolean>();
+
+  useEffect(() => {
+    if (titleRef.current) {
+      const observer = new IntersectionObserver((entries) => {
+        const [entry] = entries;
+        setIsVisible(entry.isIntersecting)
+      }, {
+        threshold: 1
+      })
+      observer.observe(titleRef.current)
+    }
+  }, []);
+
   return (
-    <div className='portfolio-box' >
+    <div className={`portfolio-box `} >
       <div className='anchor' id='projects'/>
-      <h2 className="sub-title-section">Projects</h2>
+      <h2 ref={titleRef} className={`sub-title-project ${isVisible ? 'animate-fade-in' : ''}`}>Projects</h2>
       <section className='portfolio-container'>
         <ProjectCard 
           img='./images/starry-nights.png'

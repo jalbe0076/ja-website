@@ -9,15 +9,19 @@
 
 }
 
-.animate-fade-in {
-  animation: fadeIn 1.5s ease forwards;
-  opacity: 0;
-}
-
 .project-photo {
   width: 100%;  
   object-fit: cover;
   background-color: black;
+  transition: 300ms linear;
+  filter: grayscale(1);
+}
+
+.project-container:hover {
+  // scale: 1.1;
+  .project-photo {
+    filter: grayscale(0);
+  }
 }
 
 .info-box {
@@ -38,9 +42,12 @@
   margin: .6em 0;
   display: flex;
   text-decoration: none;     
-
+  transform: translateX(0);
   .arrow {
+    transition: transform 500ms ease-in-out;
     margin-left: .5em;
+    position: absolute;
+    left:90px
   }
  
   &:visited {
@@ -48,16 +55,18 @@
   }
 }
 
+.link-container:hover {
+  .arrow {
+    // to {
+      transform: translateX(10px);
+    // }
+    // from {
+      // transform: translateX(0);
+    // }
+  }
+}
+
 .navigation-container {
   margin-top: .5em;
   align-self: flex-end;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }

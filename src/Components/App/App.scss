@@ -42,12 +42,21 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
-.sub-title-section {
-  font-size: 2rem;
-}
-
 .anchor {
   top: -100px;
   position: relative;
   display: block;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

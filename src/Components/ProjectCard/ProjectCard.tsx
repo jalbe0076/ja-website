@@ -7,18 +7,18 @@ interface ProjectCardProps {
   description: string, 
   additionalInfo?: string,
   site: string,
-  repo: string,
+  repo: string
 }
 
-const ProjectCard = ({img, name, description, additionalInfo, site, repo }: ProjectCardProps) => {
+const ProjectCard = ({img, name, description, additionalInfo, site, repo }: ProjectCardProps)  => {
   const cardRef = useRef<HTMLDivElement | null>(null);
-  const [isElementVisible, setIsElementVisible] = useState<Boolean>();
+  const [isVisible, setIsVisible] = useState<boolean>();
 
   useEffect(() => {
     if (cardRef.current) {
       const observer = new IntersectionObserver((entries) => {
         const [entry] = entries;
-        setIsElementVisible(entry.isIntersecting)
+        setIsVisible(entry.isIntersecting);
       }, {
         threshold: 0.2
       })
@@ -35,7 +35,7 @@ const ProjectCard = ({img, name, description, additionalInfo, site, repo }: Proj
   );
 
   return (
-    <article ref={cardRef} className={`project-container ${isElementVisible ? 'animate-fade-in' : ''}`}>
+    <article ref={cardRef} className={`project-container ${isVisible ? 'animate-fade-in' : ''}`}>
       <img className="project-photo" src={`${process.env.PUBLIC_URL + img}`} />
       <div className="info-box">
         <h3 className="project-name">{name}</h3>

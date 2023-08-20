@@ -2,6 +2,13 @@
   max-width: 2000px;
   margin: auto;
   min-height: 100vh;
+  // opacity: 0;
+
+  .sub-title-project {
+    font-size: 2rem;
+    // animation: translateFadeIn 1.5s ease forwards;
+    opacity: 0;
+  }
 }
 
 .portfolio-container {
@@ -9,6 +16,7 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, max-content));
   grid-gap: 2em;
   margin: 3em 0;
+
 
   //test
   // opacity: 0;

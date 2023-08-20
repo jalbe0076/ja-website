@@ -1,11 +1,36 @@
+import { useEffect, useRef, useState } from 'react';
 import './Contact.scss'
 
 const Contact = () => {
+  const contactTitleRef = useRef<HTMLHeadingElement | null>(null);
+  const [titleIsVisible, setTitleIsVisible] = useState<boolean>(false);
+  const contactRef = useRef<HTMLDivElement | null>(null);
+  const [contactIsVisible, setContactIsVisible] = useState<boolean>(false);
+
+  const observe = (setFunction: Function, ref: any) => {
+    return new IntersectionObserver((entries) => {
+      const [entry] = entries;
+      setFunction(entry.isIntersecting)
+    })
+  }
+
+  useEffect(() => {
+    if(contactTitleRef.current) {
+      const observer = observe(setTitleIsVisible, contactTitleRef);
+      observer.observe(contactTitleRef.current);
+    } 
+    
+    if(contactRef.current) {
+      const observer = observe(setContactIsVisible, contactRef);
+      observer.observe(contactRef.current);
+    }
+  }, [])
+
   return (
     <section className='contact-box'>
       <div className='anchor' id='contact'/>
-      <h2 className="sub-title-section">Contact</h2>
-      <div className='contact-container'>
+      <h2 ref={contactTitleRef} className={`sub-title-contact ${titleIsVisible ? 'animate-fade-in' : ''}`}>Contact</h2>
+      <div ref={contactRef} className={`contact-container ${contactIsVisible ? 'animate-fade-in' : ''}`}>
         <h3>Let's have some coffee together</h3>
         <div className='icon-container'>
           <a href='#' className='linkedin'>
