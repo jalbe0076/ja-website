@@ -14,6 +14,10 @@ const Nav = () => {
   const handleClick = () => {
     setAsideState(prevState => prevState === 'closed' || prevState === undefined ? 'opened' : 'closed')
   }
+
+  const handleLinkClick = () => {
+    setAsideState(prevState => prevState === 'opened'? 'closed' : 'opened')
+  }
  
   return (
     <header>
@@ -31,10 +35,10 @@ const Nav = () => {
       </button>
       <aside className='sidebar' aria-expanded={ariaExpanded}>
         <nav className='nav-link-container'>
-          <a href='#' className='menu-link about'>About</a>
-          <a href='#' className='menu-link projects'>Projects</a>
-          <a href='#' className='menu-link resume'>Resume</a>
-          <a href='#' className='menu-link contact'>Contact</a>
+          <a href='#' className='menu-link about' onClick={handleLinkClick}>About</a>
+          <a href='#projects' className='menu-link projects'  onClick={handleLinkClick}>Projects</a>
+          <a href='https://drive.google.com/file/d/1nype4yKJtWHic7QLyDYeoa9KfIu2N0vE/view?usp=sharing' className='menu-link resume'  onClick={handleLinkClick} target="_blank">Resume</a>
+          <a href='#contact' className='menu-link contact'  onClick={handleLinkClick}>Contact</a>
         </nav>
       </aside>
     </header>

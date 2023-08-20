@@ -1,7 +1,8 @@
 :root {
-  --primary-color: #444;
+  --primary-color: rgb(42, 46, 40);
   --header-height: 72px;
   --large-breakpoint: 1100px;
+  --primary-background-color: rgb(42, 46, 40);
 }
 
 *::after,
@@ -39,4 +40,14 @@ button:hover {
 
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
+}
+
+.sub-title-section {
+  font-size: 2rem;
+}
+
+.anchor {
+  top: -100px;
+  position: relative;
+  display: block;
 }

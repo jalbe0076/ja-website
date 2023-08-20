@@ -3,8 +3,9 @@ import ProjectCard from '../ProjectCard/ProjectCard';
 
 const Projects = () => {
   return (
-    <div className='portfolio-box'>
-      <h2 className="sub-title-greet">Projects</h2>
+    <div className='portfolio-box' >
+      <div className='anchor' id='projects'/>
+      <h2 className="sub-title-section">Projects</h2>
       <section className='portfolio-container'>
         <ProjectCard 
           img='./images/starry-nights.png'

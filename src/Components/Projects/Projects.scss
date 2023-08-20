@@ -1,7 +1,7 @@
 .portfolio-box {
   max-width: 2000px;
   margin: auto;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .portfolio-container {
@@ -9,6 +9,10 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, max-content));
   grid-gap: 2em;
   margin: 3em 0;
+
+  //test
+  // opacity: 0;
+  // animation: transitionIn 1s ease forwards
 }
 
 @media (max-width: 670px) {

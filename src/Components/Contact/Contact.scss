@@ -1,0 +1,20 @@
+.contact-box {
+  max-width: 2000px;
+  margin: auto;
+  min-height: calc(100vh - var(--header-height) - 48px);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.contact-container {
+  text-align: left;
+  display: inline-block;
+  margin: auto;
+}
+
+.icon-container {
+  display: flex;
+  margin: 1em 0;
+  gap: 3em;
+}

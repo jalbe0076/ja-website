@@ -4,6 +4,14 @@
   justify-content: space-between;
   background-color: white;
   box-shadow: 16px 16px 15px -5px rgba(0, 0, 0, 0.22);
+  opacity: 0;
+  // test
+
+}
+
+.animate-fade-in {
+  animation: fadeIn 1.5s ease forwards;
+  opacity: 0;
 }
 
 .project-photo {
@@ -43,4 +51,13 @@
 .navigation-container {
   margin-top: .5em;
   align-self: flex-end;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

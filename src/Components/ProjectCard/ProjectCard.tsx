@@ -1,4 +1,5 @@
-import './ProjectCard.scss'
+import './ProjectCard.scss';
+import { useRef, useEffect, useState } from 'react';
 
 interface ProjectCardProps {
   img: string,
@@ -6,10 +7,25 @@ interface ProjectCardProps {
   description: string, 
   additionalInfo?: string,
   site: string,
-  repo: string
+  repo: string,
 }
 
 const ProjectCard = ({img, name, description, additionalInfo, site, repo }: ProjectCardProps) => {
+  const cardRef = useRef<HTMLDivElement | null>(null);
+  const [isElementVisible, setIsElementVisible] = useState<Boolean>();
+
+  useEffect(() => {
+    if (cardRef.current) {
+      const observer = new IntersectionObserver((entries) => {
+        const [entry] = entries;
+        setIsElementVisible(entry.isIntersecting)
+      }, {
+        threshold: 0.2
+      })
+      observer.observe(cardRef.current)
+    }
+  }, []);
+
   const arrowSvg = (
     <svg className='arrow' stroke="black" height="24" viewBox="0 0 100 80" width="40">
           <line className="line top" x1="70" x2="40" y1="40" y2="20" strokeWidth="8" strokeLinecap="round"/>
@@ -19,7 +35,7 @@ const ProjectCard = ({img, name, description, additionalInfo, site, repo }: Proj
   );
 
   return (
-    <article className='project-container'>
+    <article ref={cardRef} className={`project-container ${isElementVisible ? 'animate-fade-in' : ''}`}>
       <img className="project-photo" src={`${process.env.PUBLIC_URL + img}`} />
       <div className="info-box">
         <h3 className="project-name">{name}</h3>
