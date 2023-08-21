@@ -3,25 +3,45 @@ header {
   top: 0;
   display: flex;
   justify-content: space-between;
-  background-color: white;
-  padding: .5em 1em;
-  height: var(--header-height);
+  align-items: center;
+  background-color: var(--fallback-background-color);
+  padding: 0 0 .5em 0;
+  // height: var(--header-height);
   z-index: 1;
+  max-width: 1430px;
+  margin: auto;
+  padding: 2em;
+}
+
+.name-container {
+  // display: flex;
+  
+  .title-name {
+    font-size: 1.5rem;
+  }
+  
+  .name-tag {
+    font-weight: 100;
+    font-size: 1.125rem;
+  }
 }
 
 .menu-btn {
   --button-color: #232;
-  padding: .8em .4em;
+  // padding: .8em .4em;
   border-radius: 8px;
   background: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  top: .75em;
-  right: 1em;
+  border: none;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // position: absolute;
+  // top: .75em;
+  // right: 1em;
   z-index: 1;
   font-size: .8rem;
+  height: fit-content;
+  width: fit-content;
 
   &.undefined :is(.top, .bottom) {
     animation: none;
@@ -67,12 +87,13 @@ header {
   display: flex;
   align-items: center;
   height: 100vh;
-  background-color: antiquewhite;
+  background-color: var(--primary-background-color);
   transition: all 500ms ease-in-out;
   translate: 100%;
   position: absolute;
   right: 0;
   top: 0;
+  opacity: 0;
 
   .nav-link-container {    
     display: flex;
@@ -97,6 +118,7 @@ header {
 
 .sidebar[aria-expanded='true'] {
   translate: 0;
+  opacity: 1;
 
   .menu-link {
     opacity: 1;
@@ -124,9 +146,7 @@ header {
   }
 }
 
-.name-container {
-  text-align: center;
-}
+
 
 @keyframes to-close-icon {
   0% {
@@ -185,10 +205,35 @@ header {
   }  
 }
 
+@media (min-width: 660px) {
+  .name-container {
+    display: flex;
+
+    .name-tag {
+      font-size: 1.5rem;
+    }
+  }
+}
+
 @media (max-width: 374px) {
   .name-container {
     h1 {
       font-size: 1.4rem;
+    }
+  }
+}
+
+@media (max-width: 340px) {
+  header {
+    padding: 1.5em;
+  }
+  .name-container {
+    .title-name {
+      font-size: 1.25rem;
+    }
+    
+    .name-tag {
+      font-size: .95rem;
     }
   }
 }

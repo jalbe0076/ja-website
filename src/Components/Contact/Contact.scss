@@ -1,16 +1,21 @@
 .contact-box {
   max-width: 2000px;
   margin: auto;
-  min-height: calc(100vh - var(--header-height) - 48px);
+  min-height: calc(100vh - var(--header-height) - 60px);
   display: flex;
-  justify-content: center;
-  align-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2em 2em 0;
 }
 
 .contact-container {
-  text-align: left;
-  display: inline-block;
-  margin: auto;
+  // text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  transform: translateY(-64px);
+  // margin: auto;
 }
 
 .icon-container {
@@ -21,4 +26,10 @@
 
 .sub-title-contact {
   font-size: 2rem;
+}
+
+@media (max-height: 440px) {
+  .contact-container {
+    transform: translateY(0);
+  }
 }
