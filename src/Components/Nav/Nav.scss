@@ -89,7 +89,7 @@ header {
   background-color: var(--primary-background-color);
   transition: all 500ms ease-in-out;
   translate: 100%;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   opacity: 0;

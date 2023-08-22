@@ -32,19 +32,3 @@ const App = () => {
 }
 
 export default App;
-
-
-  // const Projects = ({ debounce }: { debounce: <T extends (...args: any[]) => any>(func: T, wait: number) => (...args: Parameters<T>) => void }) => {
-  // const debouncedSetIsVisible = debounce(setIsVisible, 200);
-
-  // useEffect(() => {
-  //   if (titleRef.current) {
-  //     const observer = new IntersectionObserver((entries) => {
-  //       const [entry] = entries;
-  //       debouncedSetIsVisible(entry.isIntersecting)
-  //     }, {
-  //       // threshold: .1
-  //     })
-  //     observer.observe(titleRef.current)
-  //   }
-  // }, []);
