@@ -19,12 +19,14 @@ const App = () => {
 
   return (
     <div className="App">
+      <div className='background-img'>
       <Nav />
       <main>
         <About />
         <Projects />
         <Contact />
       </main>
+    </div>
     </div>
   );
 }

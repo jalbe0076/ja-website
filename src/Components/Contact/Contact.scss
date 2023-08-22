@@ -1,7 +1,7 @@
 .contact-box {
   max-width: 2000px;
   margin: auto;
-  min-height: calc(100vh - var(--header-height) - 60px);
+  min-height: calc(100vh - var(--header-height) - 96px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -9,19 +9,29 @@
 }
 
 .contact-container {
-  // text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex-grow: 1;
   transform: translateY(-64px);
-  // margin: auto;
+  margin: auto;
 }
 
 .icon-container {
   display: flex;
   margin: 1em 0;
   gap: 3em;
+}
+
+.contact-link {
+  transition: fill 300ms ease-in-out, transform 300ms ease-in-out;
+  fill: var(--primary-color);
+}
+
+.contact-link:hover {
+  cursor: pointer;
+  fill: rgb(72, 76, 70);
+  transform: scale(1.02);
 }
 
 .sub-title-contact {
