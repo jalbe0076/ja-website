@@ -21,17 +21,16 @@ const Nav = () => {
  
   return (
     <header>
-      <div className='name-container'>
+      <a href='#' className='name-container'>
         <h1 className='title-name'>JASON ALBERTO&nbsp;</h1>
         <span className='name-tag'>SOFTWARE DEVELOPER</span>
-      </div>
-      <button className={`menu-btn ${asideState} ${ariaExpanded ? 'shifted' : ''}`} aria-expanded={ariaExpanded} aria-controls='primary-navigation' onClick={handleClick}>
+      </a>
+      <button role='menu' className={`menu-btn ${asideState} ${ariaExpanded ? 'shifted' : ''}`} aria-expanded={ariaExpanded} aria-controls='primary-navigation' onClick={handleClick}>
         <svg stroke="var(--button-color)" className="hamburger" viewBox="0 0 100 80" width="30">
           <line className="line top" x1="85" x2="15" y1="20" y2="20" strokeWidth="10" strokeLinecap="round" strokeDasharray="80" strokeDashoffset="0" />
           <line className="line middle" x1="85" x2="15" y1="40" y2="40" strokeWidth="10" strokeLinecap="round" />
           <line className="line bottom" x1="15" x2="85" y1="60" y2="60" strokeWidth="10" strokeLinecap="round" strokeDasharray="80" strokeDashoffset="0" />
         </svg>
-        <span className='close-btn'>Close</span>
       </button>
       <aside className='sidebar' aria-hidden={ariaExpanded} id='primary=navigation'>
         <nav className='nav-link-container'>

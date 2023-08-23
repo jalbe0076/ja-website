@@ -37,7 +37,7 @@ header {
   height: fit-content;
   width: fit-content;
   transition: all 500ms ease-in-out;
-  translate: 41.5px;
+  // translate: 41.5px;
 
   &.undefined :is(.top, .bottom) {
     animation: none;
@@ -78,10 +78,6 @@ header {
   }
 }
 
-.shifted {
-  transform: translateX(-124px);
-}
-
 .sidebar {
   display: flex;
   align-items: center;
@@ -89,11 +85,11 @@ header {
   background-color: var(--primary-background-color);
   transition: all 500ms ease-in-out;
   translate: 100%;
-  position: fixed;
+  position: absolute;
   right: 0;
   top: 0;
   opacity: 0;
-
+  
   .nav-link-container {    
     display: flex;
     flex-direction: column;
@@ -222,6 +218,21 @@ header {
   }
   100% {
     stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 1430px) {
+  .sidebar {
+    position: fixed;
+    right: 0;
+    height: 100vh; /* Keep the sidebar height at 100vh */
+  }
+}
+
+/* For larger screens */
+@media (min-width: 1431px) {
+  .sidebar {
+    position: absolute;
   }
 }
 
