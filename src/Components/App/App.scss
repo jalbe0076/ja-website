@@ -1,11 +1,35 @@
 :root {
+  --fixed-primary-color: rgb(42, 46, 40);
+  --fixed-secondary-color: rgb(246,246,246);
+  --header-height: 36px;
+  // --primary-background-color-trans: rgb(223, 224, 223, 0.5);
+  --fixed-primary-background-color: rgb(223, 224, 223);
+  // --fallback-background-color: rgb(240, 241, 241);
+  // --hover-background-color: rgb(209,209,209);
+  --main-bg-dark: rgb(58, 63, 55);
+  --main-bg-light: rgb(240, 241, 241);
+  --secondary-bg-dark: rgb(92, 106, 87);
+  --secondary-bg-light: rgb(215, 215, 215);
+}
+
+[data-theme='light'] {
   --primary-color: rgb(42, 46, 40);
   --secondary-color: rgb(246,246,246);
-  --header-height: 36px;
   --primary-background-color-trans: rgb(223, 224, 223, 0.5);
   --primary-background-color: rgb(223, 224, 223);
   --fallback-background-color: rgb(240, 241, 241);
   --hover-background-color: rgb(209,209,209);
+  --hover-background-color-secondary: rgb(72, 76, 70);
+}
+
+[data-theme='dark'] {
+  --primary-color: rgb(246,246,246);
+  --secondary-color: rgb(42, 46, 40);
+  --primary-background-color-trans: rgb(42, 46, 40, 0.5);
+  --primary-background-color: rgb(62, 67, 59);
+  --fallback-background-color: rgb(42, 46, 40);
+  --hover-background-color: rgb(52, 59, 50);
+  --hover-background-color-secondary: rgb(209,209,209);
 }
 
 *::after,
@@ -31,7 +55,6 @@ body {
 
 .background-img {
   z-index: 0;
-  background: url('../../bg.svg') var(--fallback-background-color);
 }
 
 

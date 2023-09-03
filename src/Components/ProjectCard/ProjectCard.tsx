@@ -8,9 +8,10 @@ interface ProjectCardProps {
   additionalInfo?: string,
   site: string,
   repo: string
+  isDark: boolean
 }
 
-const ProjectCard = ({img, name, description, additionalInfo, site, repo }: ProjectCardProps)  => {
+const ProjectCard = ({img, name, description, additionalInfo, site, repo, isDark }: ProjectCardProps)  => {
   const cardRef = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState<boolean>();
 
@@ -27,10 +28,10 @@ const ProjectCard = ({img, name, description, additionalInfo, site, repo }: Proj
   }, []);
 
   const arrowSvg = (
-    <svg className='arrow' stroke="black" height="24" viewBox="0 0 100 80" width="40">
-          <line className="line top" x1="70" x2="40" y1="40" y2="15" strokeWidth="8" strokeLinecap="round"/>
-          <line className="line middle" x1="70" x2="10" y1="40" y2="40" strokeWidth="8" strokeLinecap="round" />
-          <line className="line bottom" x1="40" x2="70" y1="65" y2="40" strokeWidth="8" strokeLinecap="round"/>
+    <svg className='arrow' stroke={`${isDark ? '#E6E7E7' : 'rgb(42, 46, 40)'}`} height="24" viewBox="0 0 100 80" width="40">
+      <line className="line top" x1="70" x2="40" y1="40" y2="15" strokeWidth="8" strokeLinecap="round"/>
+      <line className="line middle" x1="70" x2="10" y1="40" y2="40" strokeWidth="8" strokeLinecap="round" />
+      <line className="line bottom" x1="40" x2="70" y1="65" y2="40" strokeWidth="8" strokeLinecap="round"/>
     </svg>
   );
 

@@ -4,7 +4,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--primary-color);
+  background-color: var(--fixed-primary-color);
   padding: 0 0 .5em 0;
   z-index: 1;
   max-width: 1430px;
@@ -13,15 +13,30 @@ header {
 }
 
 .name-container {
+  text-decoration: none;
+
   .title-name {
     font-size: 1.5rem;
-    color: var(--secondary-color);
+    color: var(--fixed-secondary-color);
   }
   
   .name-tag {
     font-weight: 100;
     font-size: 1.125rem;
-    color: var(--secondary-color);
+    color: var(--fixed-secondary-color);
+  }
+}
+.option-container {
+  position: relative;
+  display: flex;
+  z-index: 3;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-mode {
+  * {
+    color: #f6f6f6;
   }
 }
 
@@ -32,12 +47,11 @@ header {
   border: none;
   display: flex;
   align-items: center;
-  z-index: 1;
+  z-index: 3;
   font-size: .8rem;
   height: fit-content;
   width: fit-content;
   transition: all 500ms ease-in-out;
-  // translate: 41.5px;
 
   &.undefined :is(.top, .bottom) {
     animation: none;
@@ -53,6 +67,10 @@ header {
 
   .hamburger {
     transition: rotate 500ms 100ms;
+  }
+
+  .hamburger:hover {
+    transform: scale(1.02);
   }
 
   &.opened .hamburger {
@@ -89,6 +107,7 @@ header {
   right: 0;
   top: 0;
   opacity: 0;
+  z-index: 2;
   
   .nav-link-container {    
     display: flex;
@@ -116,6 +135,7 @@ header {
   .menu-link:visited,
   .menu-link:active {
     color: var(--primary-color);
+    text-decoration: none;
   }
 
   .menu-link::after {
@@ -129,6 +149,7 @@ header {
     transition: opacity 300ms, transform 300ms;
     transform: scale(0);
     transform-origin: center;
+    text-decoration: none;
   }
   
   .menu-link:hover::after,
@@ -148,7 +169,7 @@ header {
 }
 
 .menu-btn[aria-expanded='true'] {
-  --button-color: #2A2E28;
+  --button-color: var(--primary-color);
 
   .close-btn {
     opacity: 1;
@@ -225,11 +246,10 @@ header {
   .sidebar {
     position: fixed;
     right: 0;
-    height: 100vh; /* Keep the sidebar height at 100vh */
+    height: 100vh; 
   }
 }
 
-/* For larger screens */
 @media (min-width: 1431px) {
   .sidebar {
     position: absolute;

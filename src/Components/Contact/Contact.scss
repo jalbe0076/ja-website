@@ -1,5 +1,5 @@
 .contact-box {
-  max-width: 2000px;
+  max-width: 1430px;
   margin: auto;
   min-height: calc(100vh - var(--header-height) - 96px);
   display: flex;
@@ -30,7 +30,7 @@
 
 .contact-link:hover {
   cursor: pointer;
-  fill: rgb(72, 76, 70);
+  fill: var(--hover-background-color-secondary);
   transform: scale(1.02);
 }
 
