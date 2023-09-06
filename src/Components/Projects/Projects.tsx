@@ -28,6 +28,14 @@ const Projects = ({isDark}: ProjectsProps) => {
       <h2 ref={titleRef} className={`sub-title-project ${isVisible ? 'animate-fade-in' : ''}`}>Projects</h2>
       <section className='portfolio-container'>
         <ProjectCard 
+          img='./images/klime.png'
+          name='KLIME' 
+          description='An iOS only React Native application targeting users with home built climbing walls. Users can save different problems on the same wall.' 
+          site='https://github.com/Climber-s-App/klime_fe' 
+          repo='https://github.com/Climber-s-App/klime_fe'
+          isDark={isDark}
+        />
+        <ProjectCard 
           img='./images/starry-nights.png'
           name='STARRY NIGHTS' 
           description='A website that informs users of upcoming celestial events by fetching data from the NASA API. Users are notified of tracked astroids nearing earth in the next 60 days.' 
@@ -35,7 +43,7 @@ const Projects = ({isDark}: ProjectsProps) => {
           repo='https://github.com/jalbe0076/starry-nights'
           isDark={isDark}
         />
-         <ProjectCard
+        <ProjectCard
           img='./images/sound-stash.png' 
           name='SOUND STASH' 
           description='A vinyl collectors website that fetches data from discogs API to diplay that data to users. The web app allows users to login using demo users, search for vinyls, save vinyl albums to a collection, add journal entries for specific albums, and discover new music aligned with the users saved music preferences.' 

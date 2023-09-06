@@ -12,7 +12,7 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({img, name, description, additionalInfo, site, repo, isDark }: ProjectCardProps)  => {
-  const cardRef = useRef<HTMLDivElement | null>(null);
+  const cardRef = useRef<HTMLAnchorElement | null>(null);
   const [isVisible, setIsVisible] = useState<boolean>();
 
   useEffect(() => {
@@ -35,31 +35,30 @@ const ProjectCard = ({img, name, description, additionalInfo, site, repo, isDark
     </svg>
   );
 
-  return (
-    <article ref={cardRef} className={`project-container ${isVisible ? 'animate-fade-in' : ''}`}>
-      <img className="project-photo" src={`${process.env.PUBLIC_URL + img}`} />
-      <div className="info-box">
-        <h3 className="project-name">{name}</h3>
-        <p className="project-description">{description}</p>
-        {additionalInfo && (
-          <>
-            <br/>
-            <p dangerouslySetInnerHTML={{ __html: additionalInfo }}/>
-          </>
-        )}
-        <div className='navigation-container'>
-          <a className="link-container" href={site} target="_blank">
-            Visit Site
-            {arrowSvg}
-          </a>
-          <a className="link-container" href={repo} target="_blank">
-            Visit Repo
-            {arrowSvg}  
-          </a>
+  
+    return (
+      <a href={site} ref={cardRef} target="_blank" rel="noopener noreferrer" className={`project-container ${isVisible ? 'animate-fade-in' : ''}`}>
+        <img className="project-photo" src={`${process.env.PUBLIC_URL + img}`} />
+        <div className="info-box">
+          <h3 className="project-name">{name}</h3>
+          <p className="project-description">{description}</p>
+          {additionalInfo && (
+            <>
+              <br />
+              <p dangerouslySetInnerHTML={{ __html: additionalInfo }} />
+            </>
+          )}
+          <div className='navigation-container'>
+            <a className="link-container" href={repo} target="_blank" rel="noopener noreferrer">
+              Visit Repo
+              {arrowSvg}
+            </a>
+          </div>
         </div>
-      </div>
-    </article>
-  );
-}
+      </a>
+    );
+  };
+  
+
 
 export default ProjectCard;

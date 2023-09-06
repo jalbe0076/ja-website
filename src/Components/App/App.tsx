@@ -13,7 +13,7 @@ const App = () => {
     generateThemedSVG(isDark ? 'dark' : 'light');
   }, [isDark]); 
 
-  function generateThemedSVG(theme: string) {
+  const generateThemedSVG = (theme: string) => {
     const mainBgColor = theme === 'dark' ? getComputedStyle(document.documentElement).getPropertyValue('--main-bg-dark') : getComputedStyle(document.documentElement).getPropertyValue('--main-bg-light');
     const secondaryBgColor = theme === 'dark' ? getComputedStyle(document.documentElement).getPropertyValue('--secondary-bg-dark') : getComputedStyle(document.documentElement).getPropertyValue('--secondary-bg-light');
     const svgContent = `
@@ -33,25 +33,14 @@ const App = () => {
     </svg>    
     `;
   
-    // Create a container element
     const container = document.getElementById('background-container');
   
-    // Set the themed SVG as the background
     if(container){
       container.style.background = `url("data:image/svg+xml,${encodeURIComponent(svgContent)}")`;
     }
   }
   
-  // Call this function with the appropriate theme (e.g., 'light' or 'dark')
-  generateThemedSVG('light'); // For the light theme
-  // const debounce = <T extends (...args: any[]) => any>(func: T, wait: number) => {
-  //   let timeout: ReturnType<typeof setTimeout>;
-  //   return function (this: ThisParameterType<T>, ...args: Parameters<T>): void {
-  //     const context = this;
-  //     clearTimeout(timeout);
-  //     timeout = setTimeout(() => func.apply(context, args), wait) as ReturnType<typeof setTimeout>;
-  //   };
-  // }
+  generateThemedSVG('light');
 
   return (
     <div id="background-container" data-theme={isDark ? 'dark' : 'light'} className="App">

@@ -32,8 +32,8 @@ const Nav = ({isDark, setIsDark}: NavProps) => {
   return (
     <header>
       <a href='#' className='name-container'>
-        <h1 className='title-name'>JASON ALBERTO&nbsp;</h1>
-        <span className='name-tag'>SOFTWARE DEVELOPER</span>
+        <h1 className='title-name'>Jason Alberto&nbsp;</h1>
+        <span className='name-tag'>Software Developer</span>
       </a>
       <div className='option-container'>
         <DarkModeSwitch

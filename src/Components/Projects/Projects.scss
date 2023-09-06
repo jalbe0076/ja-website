@@ -12,12 +12,13 @@
 
 .portfolio-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
+  grid-template-columns: repeat(auto-fit, minmax(350px, max-content));
   grid-gap: 1.15em;
   margin: 3em 0;
+  justify-content: center;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 480px) {
   .portfolio-container {
     grid-template-columns: repeat(auto-fit, minmax(230px, max-content));
   }
