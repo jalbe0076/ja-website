@@ -7,11 +7,12 @@ interface ProjectCardProps {
   description: string, 
   additionalInfo?: string,
   site: string,
-  repo: string
+  isDeployed: boolean,
+  repo: string,
   isDark: boolean
 }
 
-const ProjectCard = ({img, name, description, additionalInfo, site, repo, isDark }: ProjectCardProps)  => {
+const ProjectCard = ({img, name, description, additionalInfo, site, isDeployed, repo, isDark }: ProjectCardProps)  => {
   const cardRef = useRef<HTMLAnchorElement | null>(null);
   const [isVisible, setIsVisible] = useState<boolean>();
 
@@ -35,20 +36,25 @@ const ProjectCard = ({img, name, description, additionalInfo, site, repo, isDark
     </svg>
   );
 
-  
     return (
       <a href={site} ref={cardRef} target="_blank" rel="noopener noreferrer" className={`project-container ${isVisible ? 'animate-fade-in' : ''}`}>
         <img className="project-photo" src={`${process.env.PUBLIC_URL + img}`} />
         <div className="info-box">
           <h3 className="project-name">{name}</h3>
           <p className="project-description">{description}</p>
-          {additionalInfo && (
+          {additionalInfo && 
             <>
               <br />
               <p dangerouslySetInnerHTML={{ __html: additionalInfo }} />
             </>
-          )}
+          }
           <div className='navigation-container'>
+            {isDeployed && 
+              <a className="link-container is-touch" href={site} target="_blank" rel="noopener noreferrer">
+                Visit Site
+                {arrowSvg}
+              </a>
+            }
             <a className="link-container" href={repo} target="_blank" rel="noopener noreferrer">
               Visit Repo
               {arrowSvg}

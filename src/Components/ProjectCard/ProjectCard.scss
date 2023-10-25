@@ -110,3 +110,9 @@
     max-height: 80vh;
   }
 }
+
+@media (pointer: fine) {
+  .is-touch {
+    display: none;
+  }
+}
