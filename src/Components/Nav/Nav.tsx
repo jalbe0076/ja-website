@@ -1,15 +1,18 @@
-import './Nav.scss'
+import './Nav.scss';
+
 import { useEffect, useState } from 'react';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 
 interface NavProps {
   isDark: boolean, 
   setIsDark: (isDark: boolean) => void
-}
+};
 
 const Nav = ({isDark, setIsDark}: NavProps) => {
   const [asideState, setAsideState] = useState<string | undefined>(undefined);
   const [hasMounted, setHasMounted] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     !hasMounted && setHasMounted(true);
@@ -31,10 +34,10 @@ const Nav = ({isDark, setIsDark}: NavProps) => {
  
   return (
     <header>
-      <a href='#' className='name-container'>
+      <NavLink to='/' className='name-container'>
         <h1 className='title-name'>Jason Alberto&nbsp;</h1>
         <span className='name-tag'>Software Developer</span>
-      </a>
+      </NavLink>
       <div className='option-container'>
         <DarkModeSwitch
               className='theme-mode'
@@ -53,10 +56,10 @@ const Nav = ({isDark, setIsDark}: NavProps) => {
       </div>
       <aside className='sidebar' aria-hidden={ariaExpanded} id='primary=navigation'>
         <nav className='nav-link-container'>
-          <a href='#' className='menu-link about' onClick={handleLinkClick}>About</a>
-          <a href='#projects' className='menu-link projects'  onClick={handleLinkClick}>Projects</a>
-          <a href='https://drive.google.com/file/d/1nype4yKJtWHic7QLyDYeoa9KfIu2N0vE/view?usp=sharing' className='menu-link resume'  onClick={handleLinkClick} target="_blank">Resume</a>
-          <a href='#contact' className='menu-link contact'  onClick={handleLinkClick}>Contact</a>
+          <Link to='/#about' className='menu-link about' onClick={handleLinkClick}>About</Link>
+          <Link to='/#projects' className='menu-link projects'  onClick={handleLinkClick}>Projects</Link>
+          <Link to='https://drive.google.com/file/d/1nype4yKJtWHic7QLyDYeoa9KfIu2N0vE/view?usp=sharing' className='menu-link resume'  onClick={handleLinkClick} target="_blank">Resume</Link>
+          <Link to='/#contact' className='menu-link contact'  onClick={handleLinkClick}>Contact</Link>
         </nav>
       </aside>
     </header>

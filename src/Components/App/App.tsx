@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import logo from '../../logo.svg';
+import ScrollToHash from '../ScrollToHash/ScrollToHash';
 import Nav from '../Nav/Nav';
 import About from '../About/About';
 import Projects from '../Projects/Projects';
 import Contact from '../Contact/Contact';
 import './App.scss';
+import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
   const [isDark, setIsDark] = useState<boolean>(false);
@@ -44,12 +45,19 @@ const App = () => {
 
   return (
     <div id="background-container" data-theme={isDark ? 'dark' : 'light'} className="App">
+      <ScrollToHash />
       <div className='background-img'>
         <Nav isDark={isDark} setIsDark={setIsDark} />
         <main>
-          <About />
-          <Projects isDark={isDark}/>
-          <Contact />
+          <Routes>
+            <Route path='/' element={
+              <>
+                <About />
+                <Projects isDark={isDark}/>
+                <Contact />
+              </>
+            } />
+          </Routes>
         </main>
       </div>
     </div>
