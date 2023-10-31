@@ -21,7 +21,7 @@ const ContactForm = () => {
   return (
     <section className="general-box">
       <h2 className='sub-title-contact' >Send me an email</h2>
-      <form className="contact-form" action="https://formsubmit.co/jason.alberto.dev@gmail.com" method="POST"> {/* localhost:3000 8aaee187ac3a3657ff6c44542c299c36 */}
+      <form className="contact-form" action="https://formsubmit.co/8aaee187ac3a3657ff6c44542c299c36" method="POST">
         <div className='form-item'>
           <label className='form-label' htmlFor="contact-name">Name</label>
           <input 
