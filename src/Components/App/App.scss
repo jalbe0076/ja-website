@@ -50,11 +50,6 @@ body {
   position: relative;
 }
 
-.background-img {
-  z-index: 0;
-}
-
-
 .background-img::after {
   content: "";
   display: block;
@@ -86,6 +81,16 @@ p, h1, h2, h3, h4, h5, h6 {
   top: -132px;
   position: relative;
   display: block;
+}
+
+.general-box {
+  max-width: 1430px;
+  margin: auto;
+  min-height: calc(100vh - var(--header-height) - 96px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2em 2em 0;
 }
 
 .animate-fade-in {

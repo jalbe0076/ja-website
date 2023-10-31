@@ -6,6 +6,7 @@ import Projects from '../Projects/Projects';
 import Contact from '../Contact/Contact';
 import './App.scss';
 import { Route, Routes } from 'react-router-dom';
+import ContactForm from '../ContactForm/ContactForm';
 
 const App = () => {
   const [isDark, setIsDark] = useState<boolean>(false);
@@ -57,6 +58,7 @@ const App = () => {
                 <Contact />
               </>
             } />
+            <Route path='/contact-form' element={<ContactForm />}/>
           </Routes>
         </main>
       </div>
