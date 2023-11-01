@@ -41,9 +41,12 @@
 }
 
 body {
-  overflow-x: hidden;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 .App {
