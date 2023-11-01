@@ -28,7 +28,7 @@ const Contact = () => {
   }, [])
 
   return (
-    <section className='general-box'>
+    <section className='contact-box'>
       <div className='anchor' id='contact'/>
       <h2 ref={contactTitleRef} className={`sub-title-contact ${titleIsVisible ? 'animate-fade-in' : ''}`}>Let's Chat</h2>
       <div ref={contactRef} className={`contact-container ${contactIsVisible ? 'animate-fade-in' : ''}`}>

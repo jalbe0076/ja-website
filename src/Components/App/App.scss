@@ -86,17 +86,6 @@ p, h1, h2, h3, h4, h5, h6 {
   display: block;
 }
 
-.general-box {
-  max-width: 1430px;
-  width: 100%;
-  margin: auto;
-  min-height: calc(100vh - var(--header-height) - 96px);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 2em 2em 0;
-}
-
 .animate-fade-in {
   animation: fadeIn 1.5s ease forwards;
 }
