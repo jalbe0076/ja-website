@@ -105,6 +105,7 @@ header {
   transition: all 500ms ease-in-out;
   translate: 100%;
   position: absolute;
+  // position: fixed;
   right: 0;
   top: 0;
   opacity: 0;
@@ -177,7 +178,7 @@ header {
   }  
 }
 
-.sidebar[aria-hidden='true'] {
+.sidebar[aria-expanded='true'] {
   translate: 0;
   opacity: 1;
 
@@ -188,7 +189,7 @@ header {
   }
 }
 
-.sidebar[aria-hidden='false'] {
+.sidebar[aria-expanded='false'] {
   .menu-link {
     &:nth-child(1) {
       translate: 15px;

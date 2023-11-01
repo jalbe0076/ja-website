@@ -54,7 +54,7 @@ const Nav = ({isDark, setIsDark}: NavProps) => {
           </svg>
         </button>
       </div>
-      <aside className='sidebar' aria-hidden={ariaExpanded} id='primary=navigation'>
+      <aside className='sidebar' aria-expanded={ariaExpanded} id='primary=navigation'>
         <nav className='nav-link-container'>
           <Link to='/#about' className='menu-link about' onClick={handleLinkClick}>About</Link>
           <Link to='/#projects' className='menu-link projects'  onClick={handleLinkClick}>Projects</Link>
