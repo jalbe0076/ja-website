@@ -1,46 +1,41 @@
-# Getting Started with Create React App
+# Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to my [portfolio](https://jasonalberto.com/)! This website is not just a showcase of my projects; it's a reflection of my journey in web development. It was created as an opportunity to learn TypeScript and explore various technologies. As I continue to work on new projects and enhance my skills, this portfolio will evolve to reflect my growth and achievements.
 
-## Available Scripts
+If you have any questions or would like to collaborate on a project, don't hesitate to reach out.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [About Me](#about-me)
+- [Technologies](#technologies)
+- [Contact](#contact)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## About Me
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Recently completed a Front End Engineering program at [Turing School of Software and Design](https://turing.edu/) as a career change from architecture. I'm passionate about web development and enjoy bringing creative ideas to life through code. This portfolio is a glimpse into my work and showcases the range of projects I've undertaken.
 
-### `npm test`
+## Technologies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I'm proficient in a range of technologies and tools, including but not limited to:
 
-### `npm run build`
+- **Frontend:** HTML, CSS, SCSS, JavaScript, TypeScript, React, React Native
+- **Testing:** Test Driven Development (TDD), Mocha-Chai, End-To-End Testing (E2E), Cypress
+- **Version Control:** Git, GitHub
+- **Exploring:** Node.js, Express, Knex
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This portfolio site itself is built using React with Typescript.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Contact
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Feel free to reach out to me for any inquiries, collaboration opportunities, or just to have a chat. You can contact me through:
 
-### `npm run eject`
+- [Email](mailto:jason.alberto.dev@gmail.com)
+- [LinkedIn](https://www.linkedin.com/in/jason-alberto/)
+- [GitHub](https://github.com/jalbe0076)
+- [Website](https://jasonalberto.com/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Let's connect and explore the endless possibilities in the world of web development!
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Thank you for visiting my portfolio. I look forward to connecting with you and sharing my passion for web development.
