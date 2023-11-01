@@ -7,7 +7,7 @@ header {
   background-color: var(--fixed-primary-color);
   padding: 0 0 .5em 0;
   z-index: 1;
-  max-width: 1430px;
+  max-width: 1512px;
   margin: auto auto;
   align-self: center;
   padding: 2em;
@@ -53,6 +53,7 @@ header {
   height: fit-content;
   width: fit-content;
   transition: all 500ms ease-in-out;
+  min-height: 38px;
 
   &.undefined :is(.top, .bottom) {
     animation: none;

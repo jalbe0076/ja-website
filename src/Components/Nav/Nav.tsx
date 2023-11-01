@@ -12,7 +12,6 @@ interface NavProps {
 const Nav = ({isDark, setIsDark}: NavProps) => {
   const [asideState, setAsideState] = useState<string | undefined>(undefined);
   const [hasMounted, setHasMounted] = useState<boolean>(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     !hasMounted && setHasMounted(true);
@@ -38,7 +37,8 @@ const Nav = ({isDark, setIsDark}: NavProps) => {
         <h1 className='title-name'>Jason Alberto&nbsp;</h1>
         <span className='name-tag'>Software Developer</span>
       </NavLink>
-      <div className='option-container'>
+      <div className='option-container'>  
+        <button className='menu-btn' onClick={toggleDarkMode}>
         <DarkModeSwitch
               className='theme-mode'
               checked={isDark}
@@ -46,7 +46,8 @@ const Nav = ({isDark, setIsDark}: NavProps) => {
               size={35}
               sunColor={'#dffc79'}
           />
-        <button role='menu' className={`menu-btn ${asideState} ${ariaExpanded ? 'shifted' : ''}`} aria-expanded={ariaExpanded} aria-controls='primary-navigation' onClick={handleClick}>
+        </button>
+        <button role='menu' className={`menu-btn ${asideState} `} aria-expanded={ariaExpanded} aria-controls='primary-navigation' onClick={handleClick}>
           <svg stroke="var(--button-color)" className="hamburger" viewBox="0 0 100 80" width="30">
             <line className="line top" x1="85" x2="15" y1="20" y2="20" strokeWidth="10" strokeLinecap="round" strokeDasharray="80" strokeDashoffset="0" />
             <line className="line middle" x1="85" x2="15" y1="40" y2="40" strokeWidth="10" strokeLinecap="round" />
