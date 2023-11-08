@@ -5,12 +5,10 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: var(--fixed-primary-color);
-  padding: 0 0 .5em 0;
+  padding: 1em;
   z-index: 1;
   max-width: 1512px;
   margin: auto auto;
-  align-self: center;
-  padding: 1.3em;
 }
 
 .name-container {
@@ -32,7 +30,7 @@ header {
   display: flex;
   z-index: 3;
   align-items: center;
-  gap: 1rem;
+  gap: .5rem;
 }
 
 .theme-mode {
@@ -279,10 +277,6 @@ header {
 }
 
 @media (max-width: 365px) {
-  header {
-    padding: 1.5em;
-  }
-
   .name-container {
     .title-name {
       font-size: 1.25rem;

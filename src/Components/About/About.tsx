@@ -27,7 +27,7 @@ const About = () => {
         <p>React | Global State Management | Typescript | Javascript | HTML5 | SASS | CSS3 | Cypress | Mocha & Chai</p>
       </div>
       <div ref={aboutRef} className={`profile-img-container ${isVisible ? 'animate-fade-in' : ''}`}>
-      <img className="profile-img" src={`${process.env.PUBLIC_URL + './images/profile-pic.jpeg'}`} />
+        <img className="profile-img" src={`${process.env.PUBLIC_URL + './images/profile-pic.jpeg'}`} />
       </div>
     </div>
   );
