@@ -1,8 +1,7 @@
 import './Nav.scss';
-
 import { useEffect, useState } from 'react';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
-import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 interface NavProps {
   isDark: boolean, 

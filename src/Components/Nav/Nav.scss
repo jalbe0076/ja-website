@@ -10,7 +10,7 @@ header {
   max-width: 1512px;
   margin: auto auto;
   align-self: center;
-  padding: 2em;
+  padding: 1.3em;
 }
 
 .name-container {
@@ -104,7 +104,6 @@ header {
   height: 100vh;
   background-color: var(--primary-background-color);
   transition: all 500ms ease-in-out;
-  translate: 100%;
   position: absolute;
   right: 0;
   top: 0;
@@ -190,7 +189,10 @@ header {
 }
 
 .sidebar[aria-expanded='false'] {
+  translate: 100%;
+
   .menu-link {
+    visibility: hidden;
     &:nth-child(1) {
       translate: 15px;
     }
