@@ -5,10 +5,10 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: var(--fixed-primary-color);
-  padding: 1em;
+  padding: 2em;
   z-index: 1;
   max-width: 1512px;
-  margin: auto auto;
+  margin: auto;
 }
 
 .name-container {
@@ -255,6 +255,12 @@ header {
 @media (min-width: 1513px) {
   .sidebar {
     position: absolute;
+  }
+}
+
+@media (max-width: 810px){
+  header {
+    padding: 1em;
   }
 }
 
