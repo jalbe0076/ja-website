@@ -14,8 +14,16 @@ const ContactForm = () => {
     message: false,
   });
 
-  const handleFocus = (fieldName: string) => {
-    setFocusedFields({...focusedFields, [fieldName]: true})
+  const handleFocus = (fieldNames: Array<string>) => {
+    setFocusedFields(prevState => {
+      const updatedFields = { ...prevState };
+  
+      fieldNames.forEach(fieldName => {
+        updatedFields[fieldName] = true;
+      });
+  
+      return updatedFields;
+    });
   }
 
   return (
@@ -32,7 +40,7 @@ const ContactForm = () => {
             placeholder='Enter your name' 
             onChange={(e: ChangeEvent<HTMLInputElement>) => setValues({...values, name: e.target.value})} 
             value={values.name} 
-            onBlur={() => handleFocus('name')}
+            onBlur={() => handleFocus(['name'])}
             data-focused={focusedFields.name.toString()}
             required 
           />
@@ -48,7 +56,7 @@ const ContactForm = () => {
             placeholder="name@domain.com" 
             onChange={(e: ChangeEvent<HTMLInputElement>) => setValues({...values, email: e.target.value})}
             value={values.email}
-            onBlur={() => handleFocus('email')}
+            onBlur={() => handleFocus(['email'])}
             data-focused={focusedFields.email.toString()}
             required />
           <span className='form-error form'>Please enter your email</span>
@@ -63,13 +71,13 @@ const ContactForm = () => {
             placeholder='Enter a detailed message (Max 750 chars)' 
             onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setValues({...values, message: e.target.value})} 
             value={values.message}  
-            onBlur={() => handleFocus('message')}
+            onBlur={() => handleFocus(['message'])}
             data-focused={focusedFields.message.toString()}
             required 
           />
           <span className='form-error form'>Please enter a message</span>
         </div>
-        <button className='form-button' type="submit">Send email</button>
+        <button className='form-button' type="submit" onClick={() => handleFocus(['name', 'email', 'message'])}>Send email</button>
       </form>
     </section>
   )

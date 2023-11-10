@@ -29,8 +29,11 @@
   --hover-background-color-secondary: rgb(209,209,209);
 }
 
+*,
 *::after,
-*::before {
+*::before,
+input, 
+textarea {
   box-sizing: border-box;
 }
 

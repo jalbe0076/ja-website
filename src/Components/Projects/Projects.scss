@@ -4,6 +4,7 @@
   min-height: 100vh;
   padding: 2em;
 
+
   .sub-title-project {
     font-size: 2rem;
     opacity: 0;
@@ -12,9 +13,9 @@
 
 .portfolio-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, max-content));
+  grid-template-columns: repeat(auto-fit, minmax(302px, max-content));
   grid-gap: 1.15em;
-  margin: 3em 0;
+  margin: 2em 0;
   justify-content: center;
 }
 
@@ -31,10 +32,10 @@
   
   .portfolio-box {
     min-height: 100vh;
-    padding: 0;
+    padding: 2em 0 0;
 
     .sub-title-project {
-      padding: 0 1em;
+      padding: 0 0.5em;
     }
   }
 }
