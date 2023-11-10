@@ -3,6 +3,7 @@ import { useRef, useEffect, useState } from 'react';
 
 interface ProjectCardProps {
   img: string,
+  alt: string,
   name: string,
   description: string, 
   additionalInfo?: string,
@@ -12,7 +13,7 @@ interface ProjectCardProps {
   isDark: boolean
 }
 
-const ProjectCard = ({img, name, description, additionalInfo, site, isDeployed, repo, isDark }: ProjectCardProps)  => {
+const ProjectCard = ({img, alt, name, description, additionalInfo, site, isDeployed, repo, isDark }: ProjectCardProps)  => {
   const cardRef = useRef<HTMLAnchorElement | null>(null);
   const [isVisible, setIsVisible] = useState<boolean>();
 
@@ -38,7 +39,7 @@ const ProjectCard = ({img, name, description, additionalInfo, site, isDeployed, 
 
     return (
       <a href={site} ref={cardRef} target="_blank" rel="noopener noreferrer" className={`project-container ${isVisible ? 'animate-fade-in' : ''}`}>
-        <img className="project-photo" src={`${process.env.PUBLIC_URL + img}`} />
+        <img className="project-photo" src={`${process.env.PUBLIC_URL + img}`} alt={alt} />
         <div className="info-box">
           <h3 className="project-name">{name}</h3>
           <p className="project-description">{description}</p>

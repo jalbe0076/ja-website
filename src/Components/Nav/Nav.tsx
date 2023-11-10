@@ -37,7 +37,7 @@ const Nav = ({isDark, setIsDark}: NavProps) => {
         <span className='name-tag'>Software Developer</span>
       </NavLink>
       <div className='option-container'>  
-        <button className='menu-btn' onClick={toggleDarkMode}>
+        <button className='menu-btn' aria-labelledby='theme-mode' onClick={toggleDarkMode}>
         <DarkModeSwitch
               className='theme-mode'
               checked={isDark}
@@ -45,21 +45,23 @@ const Nav = ({isDark, setIsDark}: NavProps) => {
               size={35}
               sunColor={'#dffc79'}
           />
+          <span id='theme-mode' hidden>toggle theme to {isDark ? 'light mode' : 'dark mode'}</span>
         </button>
-        <button role='menu' className={`menu-btn ${asideState} `} aria-expanded={ariaExpanded} aria-controls='primary-navigation' onClick={handleClick}>
+        <button className={`menu-btn ${asideState} `} aria-labelledby='sidebar-menu' aria-expanded={ariaExpanded} aria-controls='primary-navigation' onClick={handleClick}>
           <svg stroke="var(--button-color)" className="hamburger" viewBox="0 0 100 80" width="30">
             <line className="line top" x1="85" x2="15" y1="20" y2="20" strokeWidth="10" strokeLinecap="round" strokeDasharray="80" strokeDashoffset="0" />
             <line className="line middle" x1="85" x2="15" y1="40" y2="40" strokeWidth="10" strokeLinecap="round" />
             <line className="line bottom" x1="15" x2="85" y1="60" y2="60" strokeWidth="10" strokeLinecap="round" strokeDasharray="80" strokeDashoffset="0" />
           </svg>
+        <span id='sidebar-menu' hidden>open or close</span>
         </button>
       </div>
-      <aside className='sidebar' aria-expanded={ariaExpanded} id='primary=navigation'>
+      <aside role='menu' className='sidebar' aria-expanded={ariaExpanded} id='primary-navigation'>
         <nav className='nav-link-container'>
-          <Link to='/#about' className='menu-link about' onClick={handleLinkClick}>About</Link>
-          <Link to='/#projects' className='menu-link projects'  onClick={handleLinkClick}>Projects</Link>
-          <Link to='https://drive.google.com/file/d/1nype4yKJtWHic7QLyDYeoa9KfIu2N0vE/view?usp=sharing' className='menu-link resume'  onClick={handleLinkClick} target="_blank">Resume</Link>
-          <Link to='/#contact' className='menu-link contact'  onClick={handleLinkClick}>Contact</Link>
+          <Link id='about' to='/#about' role='menuitem' className='menu-link about' onClick={handleLinkClick}>About</Link>
+          <Link id='projects' to='/#projects' role='menuitem' className='menu-link projects'  onClick={handleLinkClick}>Projects</Link>
+          <Link id='resume' to='https://drive.google.com/file/d/1nype4yKJtWHic7QLyDYeoa9KfIu2N0vE/view?usp=sharing' role='menuitem' className='menu-link resume'  onClick={handleLinkClick} target="_blank">Resume</Link>
+          <Link id='contact' to='/#contact' role='menuitem' className='menu-link contact'  onClick={handleLinkClick}>Contact</Link>
         </nav>
       </aside>
     </header>
