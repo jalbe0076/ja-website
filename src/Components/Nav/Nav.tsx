@@ -58,10 +58,10 @@ const Nav = ({isDark, setIsDark}: NavProps) => {
       </div>
       <aside role='menu' className='sidebar' aria-expanded={ariaExpanded} id='primary-navigation'>
         <nav className='nav-link-container'>
-          <Link id='about' to='/#about' role='menuitem' className='menu-link about' onClick={handleLinkClick}>About</Link>
-          <Link id='projects' to='/#projects' role='menuitem' className='menu-link projects'  onClick={handleLinkClick}>Projects</Link>
-          <Link id='resume' to='https://drive.google.com/file/d/1nype4yKJtWHic7QLyDYeoa9KfIu2N0vE/view?usp=sharing' role='menuitem' className='menu-link resume'  onClick={handleLinkClick} target="_blank">Resume</Link>
-          <Link id='contact' to='/#contact' role='menuitem' className='menu-link contact'  onClick={handleLinkClick}>Contact</Link>
+          <Link to='/#about' role='menuitem' className='menu-link about' onClick={handleLinkClick}>About</Link>
+          <Link to='/#projects' role='menuitem' className='menu-link projects'  onClick={handleLinkClick}>Projects</Link>
+          <Link to='https://drive.google.com/file/d/1nype4yKJtWHic7QLyDYeoa9KfIu2N0vE/view?usp=sharing' role='menuitem' className='menu-link resume'  onClick={handleLinkClick} target="_blank">Resume</Link>
+          <Link to='/#contact' role='menuitem' className='menu-link contact'  onClick={handleLinkClick}>Contact</Link>
         </nav>
       </aside>
     </header>
