@@ -1,5 +1,5 @@
 import './Nav.scss';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { NavLink, Link } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ const Nav = ({isDark, setIsDark}: NavProps) => {
   const menuRef = useRef<HTMLDivElement | null>(null);
   const ariaExpanded = asideState === 'opened' ? true : false;
   
-  const closeOpenMenu = useCallback((event: MouseEvent ) => {
+  const controlMenu = (event: MouseEvent) => {
     const clickedElement = event.target as HTMLElement;
     const isMenuBtn = clickedElement.closest('.menu-btn') ;
     
@@ -21,13 +21,13 @@ const Nav = ({isDark, setIsDark}: NavProps) => {
     else if(menuRef.current && ariaExpanded && !menuRef.current.contains(event.target as Node)) {
       handleClick();
     }
-  }, [ariaExpanded])
+  }
 
   useEffect(() => {
-    document.addEventListener('mousedown', closeOpenMenu);
+    document.addEventListener('mousedown', controlMenu);
 
-    return () => document.removeEventListener('mousedown', closeOpenMenu);
-  }, [closeOpenMenu]);
+    return () => document.removeEventListener('mousedown', controlMenu);
+  }, [controlMenu]);
 
   const toggleDarkMode = () => {
     setIsDark(!isDark);
