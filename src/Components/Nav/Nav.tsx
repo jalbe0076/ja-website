@@ -1,5 +1,5 @@
 import './Nav.scss';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { NavLink, Link } from 'react-router-dom';
 
@@ -10,13 +10,24 @@ interface NavProps {
 
 const Nav = ({isDark, setIsDark}: NavProps) => {
   const [asideState, setAsideState] = useState<string | undefined>(undefined);
-  const [hasMounted, setHasMounted] = useState<boolean>(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const ariaExpanded = asideState === 'opened' ? true : false;
+  
+  const closeOpenMenu = useCallback((event: MouseEvent ) => {
+    const clickedElement = event.target as HTMLElement;
+    const isMenuBtn = clickedElement.closest('.menu-btn') ;
+    
+    if(isMenuBtn) return;    
+    else if(menuRef.current && ariaExpanded && !menuRef.current.contains(event.target as Node)) {
+      handleClick();
+    }
+  }, [ariaExpanded])
 
   useEffect(() => {
-    !hasMounted && setHasMounted(true);
-  }, [hasMounted]);
+    document.addEventListener('mousedown', closeOpenMenu);
 
-  const ariaExpanded = asideState === 'opened' ? true : false;
+    return () => document.removeEventListener('mousedown', closeOpenMenu);
+  }, [closeOpenMenu]);
 
   const toggleDarkMode = () => {
     setIsDark(!isDark);
@@ -56,7 +67,7 @@ const Nav = ({isDark, setIsDark}: NavProps) => {
         <span id='sidebar-menu' hidden>open or close</span>
         </button>
       </div>
-      <aside role='menu' className='sidebar' aria-expanded={ariaExpanded} id='primary-navigation'>
+      <aside ref={menuRef} role='menu' className='sidebar' aria-expanded={ariaExpanded} id='primary-navigation'>
         <nav className='nav-link-container'>
           <Link to='/#about' role='menuitem' className='menu-link about' onClick={handleLinkClick}>About</Link>
           <Link to='/#projects' role='menuitem' className='menu-link projects'  onClick={handleLinkClick}>Projects</Link>
