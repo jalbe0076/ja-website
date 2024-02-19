@@ -71,7 +71,7 @@ const Nav = ({isDark, setIsDark}: NavProps) => {
         <nav className='nav-link-container'>
           <Link to='/#about' role='menuitem' className='menu-link about' onClick={handleLinkClick}>About</Link>
           <Link to='/#projects' role='menuitem' className='menu-link projects'  onClick={handleLinkClick}>Projects</Link>
-          <Link to='https://drive.google.com/file/d/1nype4yKJtWHic7QLyDYeoa9KfIu2N0vE/view?usp=sharing' role='menuitem' className='menu-link resume'  onClick={handleLinkClick} target="_blank">Resume</Link>
+          <Link to='https://drive.google.com/file/d/1cMRJ-KYIzMxVD34dOGVp7zgpfZQlSWGJ/view?usp=drive_link' role='menuitem' className='menu-link resume'  onClick={handleLinkClick} target="_blank">Resume</Link>
           <Link to='/#contact' role='menuitem' className='menu-link contact'  onClick={handleLinkClick}>Contact</Link>
         </nav>
       </aside>
