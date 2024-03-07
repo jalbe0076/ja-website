@@ -27,6 +27,16 @@ const Projects = ({isDark}: ProjectsProps) => {
       <div className='anchor' id='projects'/>
       <h2 ref={titleRef} className={`sub-title-project ${isVisible ? 'animate-fade-in' : ''}`}>Projects</h2>
       <section className='portfolio-container'>
+      <ProjectCard 
+          img='./images/codecademy-be-collection.png'
+          alt='codecademy back end projects collection'
+          name='BE collection' 
+          description="A collection of projects following Codecademy's Back End career path, these projects represent my journey to gain valuable exposure to the other side of the stack." 
+          site='https://github.com/jalbe0076/codecademy'
+          isDeployed={false}  
+          repo='https://github.com/jalbe0076/codecademy'
+          isDark={isDark}
+        />
         <ProjectCard 
           img='./images/klime.png'
           alt='cell phone cut out showing and application with climbing walls as a selection'
