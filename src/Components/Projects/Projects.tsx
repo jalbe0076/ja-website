@@ -41,7 +41,8 @@ const Projects = ({isDark}: ProjectsProps) => {
           img='./images/klime.png'
           alt='cell phone cut out showing and application with climbing walls as a selection'
           name='KLIME' 
-          description='An iOS only React Native application targeting users with home built climbing walls. Users can save different problems on the same wall.' 
+          description='An iOS-only React Native application targeting users with home-built climbing walls. Users can save different problems on the same wall.'
+          additionalInfo='NOTE: The database is not maintained and has been disconnected, so the app no longer works as per the video preview.'
           site='https://github.com/Climber-s-App/klime_fe'
           isDeployed={false}  
           repo='https://github.com/Climber-s-App/klime_fe'
