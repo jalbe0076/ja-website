@@ -24,7 +24,7 @@ const About = () => {
         <br/>
         <p>When I'm not at the computer you can find me climbing on a rock or taking care of plants.</p>
         <br/>
-        <p>React | TypeScript | JavaScript | Node | Express | PostgreSQL | React Native | HTML5 | SASS | CSS3 | Cypress | Mocha & Chai</p>
+        <p>React | TypeScript | JavaScript | Node | Express | PostgreSQL | React Native | HTML5 | SASS | CSS3 | Cypress | Mocha & Chai | Storybook | Chromatic | Wordpress</p>
       </div>
       <div ref={aboutRef} className={`profile-img-container ${isVisible ? 'animate-fade-in' : ''}`}>
         <img className="profile-img" src={`${process.env.PUBLIC_URL + './images/profile-pic.jpeg'}`} alt='jason sitting cross-legged in a grass field' />
