@@ -18,6 +18,10 @@ const ScrollToHash = () => {
         lastHash.current = '';
       }, 100);
     }
+
+    if (!location.hash) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }, [location]);
 
   return null;
