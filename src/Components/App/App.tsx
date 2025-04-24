@@ -10,6 +10,23 @@ import ContactForm from '../ContactForm/ContactForm';
 
 const App = () => {
   const [isDark, setIsDark] = useState<boolean>(false);
+  
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    setIsDark(mediaQuery.matches);
+  
+    // Listener to detect system theme changes
+    const handleChange = (e: MediaQueryListEvent) => {
+      setIsDark(e.matches);
+    };
+  
+    mediaQuery.addEventListener('change', handleChange);
+  
+    // Cleanup listener on unmount
+    return () => {
+      mediaQuery.removeEventListener('change', handleChange);
+    };
+  }, []);
 
   useEffect(() => {
     generateThemedSVG(isDark ? 'dark' : 'light');
