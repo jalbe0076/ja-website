@@ -64,6 +64,7 @@ html, body {
 
 main {
   width: 100%;
+  min-height: calc(100vh - var(--header-height) - 66px);
 }
 
 input, button, textarea, select {
@@ -91,6 +92,36 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .animate-fade-in {
   animation: fadeIn 1.5s ease forwards;
+}
+
+.iframe-frame {
+  // position: relative;
+  width: 100%;
+  min-height: calc(100vh - var(--header-height) - 66px);
+  // background: url('/your-background.jpg') center/cover no-repeat; /* your real background here */
+  // border-radius: 16px;
+  overflow: hidden;
+  // box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2); /* soft inner shadow */
+}
+
+.iframe-content {
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+}
+
+.iframe-container {
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  width: 100%;
+  min-height: calc(100vh - var(--header-height) - 66px);
+  border: none;
+  background: transparent;
 }
 
 @keyframes fadeIn {

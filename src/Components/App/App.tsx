@@ -1,40 +1,69 @@
-import { useEffect, useState } from 'react';
-import ScrollToHash from '../ScrollToHash/ScrollToHash';
-import Nav from '../Nav/Nav';
-import About from '../About/About';
-import Projects from '../Projects/Projects';
-import Contact from '../Contact/Contact';
-import './App.scss';
-import { Route, Routes } from 'react-router-dom';
-import ContactForm from '../ContactForm/ContactForm';
+import { useEffect, useState } from "react";
+import ScrollToHash from "../ScrollToHash/ScrollToHash";
+import Nav from "../Nav/Nav";
+import About from "../About/About";
+import Projects from "../Projects/Projects";
+import Contact from "../Contact/Contact";
+import "./App.scss";
+import { useNavigate, useLocation, Route, Routes } from "react-router-dom";
+import ContactForm from "../ContactForm/ContactForm";
 
 const App = () => {
-  const [isDark, setIsDark] = useState<boolean>(false);
-  
+  const [isDark, setIsDark] = useState<boolean>(true);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    if (isDark !== null) return; 
+
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     setIsDark(mediaQuery.matches);
-  
-    // Listener to detect system theme changes
+
     const handleChange = (e: MediaQueryListEvent) => {
+      if (isDark === null) return;
       setIsDark(e.matches);
     };
-  
-    mediaQuery.addEventListener('change', handleChange);
-  
-    // Cleanup listener on unmount
+
+    mediaQuery.addEventListener("change", handleChange);
+
     return () => {
-      mediaQuery.removeEventListener('change', handleChange);
+      mediaQuery.removeEventListener("change", handleChange);
     };
-  }, []);
+  }, [isDark]);
 
   useEffect(() => {
-    generateThemedSVG(isDark ? 'dark' : 'light');
-  }, [isDark]); 
+    if (isDark === null) return;
+
+    if (location.pathname === "/component-library") {
+      const params = new URLSearchParams(location.search);
+      params.set("theme", isDark ? "dark" : "light");
+
+      navigate(`${location.pathname}?${params.toString()}`, { replace: true });
+    }
+  }, [isDark, location.search, location.pathname, navigate]);
+
+  useEffect(() => {
+    generateThemedSVG(isDark ? "dark" : "light");
+  }, [isDark]);
 
   const generateThemedSVG = (theme: string) => {
-    const mainBgColor = theme === 'dark' ? getComputedStyle(document.documentElement).getPropertyValue('--main-bg-dark') : getComputedStyle(document.documentElement).getPropertyValue('--main-bg-light');
-    const secondaryBgColor = theme === 'dark' ? getComputedStyle(document.documentElement).getPropertyValue('--secondary-bg-dark') : getComputedStyle(document.documentElement).getPropertyValue('--secondary-bg-light');
+    const mainBgColor =
+      theme === "dark"
+        ? getComputedStyle(document.documentElement).getPropertyValue(
+            "--main-bg-dark"
+          )
+        : getComputedStyle(document.documentElement).getPropertyValue(
+            "--main-bg-light"
+          );
+    const secondaryBgColor =
+      theme === "dark"
+        ? getComputedStyle(document.documentElement).getPropertyValue(
+            "--secondary-bg-dark"
+          )
+        : getComputedStyle(document.documentElement).getPropertyValue(
+            "--secondary-bg-light"
+          );
     const svgContent = `
     <svg width="81" height="81" viewBox="0 0 81 81" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_2837_72816)">
@@ -51,36 +80,57 @@ const App = () => {
       </g>
     </svg>    
     `;
-  
-    const container = document.getElementById('background-container');
-  
-    if(container){
-      container.style.background = `url("data:image/svg+xml,${encodeURIComponent(svgContent)}")`;
+
+    const container = document.getElementById("background-container");
+
+    if (container) {
+      container.style.background = `url("data:image/svg+xml,${encodeURIComponent(
+        svgContent
+      )}")`;
     }
-  }
-  
-  generateThemedSVG('light');
+  };
 
   return (
-    <div id="background-container" data-theme={isDark ? 'dark' : 'light'} className="App">
+    <div
+      id="background-container"
+      data-theme={isDark ? "dark" : "light"}
+      className="App background-container"
+    >
       <ScrollToHash />
-      <div className='background-img'>
+      <div className="background-img">
         <Nav isDark={isDark} setIsDark={setIsDark} />
         <main>
           <Routes>
-            <Route path='/' element={
-              <>
-                <About />
-                <Projects isDark={isDark}/>
-                <Contact />
-              </>
-            } />
-            <Route path='/contact-form' element={<ContactForm />}/>
+            <Route
+              path="/"
+              element={
+                <>
+                  <About />
+                  <Projects isDark={isDark} />
+                  <Contact />
+                </>
+              }
+            />
+            <Route path="/contact-form" element={<ContactForm />} />
+            <Route
+              path="/component-library"
+              element={
+                <iframe
+                  key={isDark ? "dark" : "light"}
+                  src={`http://localhost:3000/?theme=${
+                    isDark ? "dark" : "light"
+                  }`}
+                  className="iframe-container"
+                  title="Component Library"
+                  allowTransparency={true}
+                />
+              }
+            />
           </Routes>
         </main>
       </div>
     </div>
   );
-}
+};
 
 export default App;
