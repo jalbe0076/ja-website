@@ -129,7 +129,7 @@ const Nav = ({ isDark, setIsDark }: NavProps) => {
         ref={menuRef}
         role="menu"
         className="sidebar"
-        aria-expanded={ariaExpanded}
+        data-expanded={ariaExpanded}
         id="primary-navigation"
       >
         <nav className="nav-link-container">
