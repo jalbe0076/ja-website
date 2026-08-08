@@ -9,19 +9,16 @@ import { useNavigate, useLocation, Route, Routes } from "react-router-dom";
 import ContactForm from "../ContactForm/ContactForm";
 
 const App = () => {
-  const [isDark, setIsDark] = useState<boolean>(true);
+  const [isDark, setIsDark] = useState<boolean>(false);
 
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    if (isDark !== null) return; 
-
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     setIsDark(mediaQuery.matches);
 
     const handleChange = (e: MediaQueryListEvent) => {
-      if (isDark === null) return;
       setIsDark(e.matches);
     };
 
@@ -30,11 +27,9 @@ const App = () => {
     return () => {
       mediaQuery.removeEventListener("change", handleChange);
     };
-  }, [isDark]);
+  }, []);
 
   useEffect(() => {
-    if (isDark === null) return;
-
     if (location.pathname === "/component-library") {
       const params = new URLSearchParams(location.search);
       params.set("theme", isDark ? "dark" : "light");
@@ -117,7 +112,7 @@ const App = () => {
               element={
                 <iframe
                   key={isDark ? "dark" : "light"}
-                  src={`http://localhost:3000/?theme=${
+                  src={`https://component-kit-lemon.vercel.app/?theme=${
                     isDark ? "dark" : "light"
                   }`}
                   className="iframe-container"

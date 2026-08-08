@@ -129,6 +129,7 @@ const Nav = ({ isDark, setIsDark }: NavProps) => {
         ref={menuRef}
         role="menu"
         className="sidebar"
+        aria-expanded={ariaExpanded}
         id="primary-navigation"
       >
         <nav className="nav-link-container">
@@ -165,6 +166,14 @@ const Nav = ({ isDark, setIsDark }: NavProps) => {
             target="_blank"
           >
             Repo
+          </Link>
+          <Link
+            to="/component-library"
+            role="menuitem"
+            className="menu-link component-library"
+            onClick={handleLinkClick}
+          >
+            Component Library
           </Link>
           <Link
             to="/#contact"
