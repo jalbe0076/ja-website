@@ -64,6 +64,7 @@ html, body {
 
 main {
   width: 100%;
+  min-height: calc(100vh - var(--header-height) - 66px);
 }
 
 input, button, textarea, select {
@@ -91,6 +92,13 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .animate-fade-in {
   animation: fadeIn 1.5s ease forwards;
+}
+
+.iframe-container {
+  width: 100%;
+  min-height: calc(100vh - var(--header-height) - 66px);
+  border: none;
+  background: transparent;
 }
 
 @keyframes fadeIn {

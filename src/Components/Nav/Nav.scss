@@ -174,7 +174,7 @@ header {
   }  
 }
 
-.sidebar[aria-expanded='true'] {
+.sidebar[data-expanded='true'] {
   translate: 0;
   opacity: 1;
 
@@ -185,7 +185,7 @@ header {
   }
 }
 
-.sidebar[aria-expanded='false'] {
+.sidebar[data-expanded='false'] {
   translate: 100%;
 
   .menu-link {
@@ -208,6 +208,10 @@ header {
 
     &:nth-child(5) {
       translate: 75px;
+    }
+
+    &:nth-child(6) {
+      translate: 90px;
     }
   }
 }
